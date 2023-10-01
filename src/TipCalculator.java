@@ -18,15 +18,19 @@ public class TipCalculator {
 
         totalCost++;
 
+        double totalTip = (totalCost * (tipPercentage * 0.01));
+        double totalBillWTip = (totalCost + (totalCost * (tipPercentage * 0.01)));
+        double perPersonCostB4Tip = (totalCost / numPeople);
+        double tipPerPerson = ((totalCost * (tipPercentage * 0.01)) / numPeople);
+        double totalCostPerPerson = ((totalCost / numPeople) + ((totalCost * (tipPercentage * 0.01)) / numPeople));
+
         System.out.println("-------------------------------");
         System.out.println("Total bill before tip: $" + totalCost);
         System.out.println("Total percentage: " + tipPercentage + "%");
-        System.out.println("Total tip: $" + ((Math.round((totalCost * (tipPercentage * 0.01)) * 100)) / 100));
-        System.out.println("Total bill with tip: $" + (Math.round((totalCost + (totalCost * (tipPercentage * 0.01))) * 100) / 100));
-        System.out.println("Per person cost before tip: $" + (Math.round((totalCost / numPeople) * 100) / 100));
-        System.out.println("Tip per person: $" + (Math.round(((totalCost * (tipPercentage * 0.01)) / numPeople) * 100) / 100));
-        System.out.println("Total cost per person: $" + (Math.round(((totalCost / numPeople) + ((totalCost * (tipPercentage * 0.01)) / numPeople)) * 100) / 100));
+        System.out.println("Total tip: $" + ((Math.round(totalTip * 100)) / 100.0));
+        System.out.println("Total bill with tip: $" + ((Math.round(totalBillWTip * 100)) / 100.0));
+        System.out.println("Per person cost before tip: $" + ((Math.round(perPersonCostB4Tip * 100)) / 100.0));
+        System.out.println("Tip per person: $" + ((Math.round(tipPerPerson * 100)) / 100.0));
+        System.out.println("Total cost per person: $" + ((Math.round(totalCostPerPerson * 100)) / 100.0));
     }
 }
-
-
